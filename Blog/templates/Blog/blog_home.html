@@ -1,0 +1,31 @@
+{%extends "PortFolio/base.html"%}
+{% load static %}
+{% block content %}
+
+<h1 class="font-weight-bold text-center">Blog</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+
+<h3 class="text-center mb-5">Prateek has written {{ Blogs.count }} blog{{ Blogs.count|pluralize }}</h3>
+<body>
+{% for Blog in Blogs %}
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+<a href="{% url 'Blog:detail' Blog.id %}">
+    <h2>{{Blog.title}}</h2>
+</a>
+      <h5 class="text-muted">{{ Blog.date|date:'j N Y'}}</h5>
+<img src="{{Blog.images.url}}">
+<br>
+<br>
+<br>
+      <h4>{{ Blog.description|truncatechars:100 }}</h4>
+{% endfor %}
+<br>
+</body>
+</html>
+{% endblock %}

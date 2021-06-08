@@ -1,0 +1,16 @@
+{%extends "PortFolio/base.html"%}
+{% load static %}
+{% block content %}
+<title>blog{{blog.id}}</title>
+
+<h1 class="text-center mt-5">{{ blog.title }}</h1>
+<h5 class="text-center text-muted mb-5">{{ blog.date|date:'F jS Y' }}</h5>
+<img src="{{blog.images.url}}"/>
+<br>
+<br>
+<p>{{blog.description|safe }}</p>
+<br>
+<br>
+<br>
+
+{% endblock %}

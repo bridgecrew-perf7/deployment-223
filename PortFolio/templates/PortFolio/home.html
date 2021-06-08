@@ -1,0 +1,34 @@
+{%extends "PortFolio/base.html"%}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <img src="{% static 'PortFolio/Image.jpg'%}" class= "img-fluid">
+  </div>
+ </div>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h1 id="hometext" class="font-weight-bold">This is Prateek Bhardwaj's Personal Portfolio made in Django! 😊</h1>
+  </div>
+</div>
+
+<h1 class="mt-5">Knowledge Base</h1>
+<hr>
+<div class="row">
+<body>
+{% for project in Projects%}
+<div class="col-lg-4 col-md-6">
+<h2>{{project.title}}</h2>
+  <img src="{{project.images.url}}" class="img-fluid mb-2">
+</a>
+<p>{{project.description}}</p>
+</div>
+
+{% endfor %}
+</div>
+
+{% endblock %}
